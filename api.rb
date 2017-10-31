@@ -11,6 +11,9 @@ require 'redis'
 
 redis = Redis.new(host: "localhost", port: 6379)
 
+# Sinatra listen on all interfaces
+set :bind, '0.0.0.0'
+
 get '/cat' do
   uri = URI(cat_api_url)
   xmlcontent = Net::HTTP.get(uri)
