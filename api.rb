@@ -2,6 +2,7 @@
 
 cat_api_key = 'MjMyMTUx'
 cat_api_url = 'http://thecatapi.com/api/images/get?format=xml&results_per_page=1'
+redishost = ENV['redishost']
 
 require 'sinatra'
 require 'json'
@@ -9,7 +10,7 @@ require 'net/http'
 require 'crack'
 require 'redis'
 
-redis = Redis.new(host: "localhost", port: 6379)
+redis = Redis.new(host: redishost, port: 6379)
 
 # Sinatra listen on all interfaces
 set :bind, '0.0.0.0'
